@@ -154,6 +154,15 @@ li {
 span{
   margin-left: 18px;
 }
+.first{
+  margin-right: 8px;
+  width: 60%;
+}
+.second{
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
 
 /* Responsiveness */
 @media (max-width: 780px){
@@ -220,5 +229,6 @@ span{
     display: flex;
     flex-direction: row;
     font-size: 12px;
+    width: 50%;
   }
 }
