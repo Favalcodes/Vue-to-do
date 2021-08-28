@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue To-do</title>
+  </head>
+  <style>
+    .buut, .button {
+      background: #eee;
+      padding: 8px;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    .done {
+      background: #b4ffb4;
+      padding: 8px;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    .waiting {
+      background: #f5f5a3;
+      border: none;
+      padding: 8px;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <nav>
+      <div class="d-flex">
+        <div class="circle"></div>
+        <h4>Fav-To-Do</h4>
+      </div>
+    </nav>
+    <div id="app">
+      <h1>What would you like to do?</h1>
+      <p>Add your tasks and let's help you remember to get them done</p>
+      <img src="cuate.svg" />
+      <form @submit.prevent="addTodo">
+        <input
+          v-model="newTodo"
+          type="text"
+          name="newTodo"
+          id="newTodo"
+          placeholder="Enter a task here"
+        />
+        <button type="submit" name="button" class="btn">
+          Add <i class="fas fa-plus"></i>
+        </button>
+      </form>
+      <div class="buttons">
+        <button class="btn-clear" @click="clearAll">Clear List</button>
+        <button type="button" @click="allDone" name="button" class="btn-clear">
+          Mark all as done <i class="fas fa-check-double"></i>
+        </button>
+      </div>
+      <ul>
+        <main>
+          <li v-for="todo in todos">
+            <div class="first">
+              <button
+                type="button"
+                @click="removeTodo(todo)"
+                name="button"
+                class="btn-clear"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+              <span>{{todo.title}}</span>
+            </div>
+            <div class="second">
+              <button @click="waiting(todo)" :class="{waiting:todo.waiting, buut:todo.buut}">
+                Progress <i class="far fa-clock"></i>
+              </button>
+              <button @click="completeTask(todo)" :class="{ done: todo.done, button:todo.button}">
+                Done <i class="fas fa-check"></i>
+              </button>
+            </div>
+          </li>
+        </main>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
