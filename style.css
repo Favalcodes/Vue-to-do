@@ -151,18 +151,19 @@ li {
   list-style: none;
   margin-bottom: 20px;
 }
-span{
-  margin-left: 18px;
-}
 .first{
   display: flex;
   margin-right: 8px;
-  width: 60%;
+  width: 100%;
+}
+span{
+  margin-left: 18px;
+  width: 100%;
 }
 .second{
   display: flex;
   justify-content: flex-end;
-  width: 40%;
+  width: 20%;
 }
 
 /* Responsiveness */
